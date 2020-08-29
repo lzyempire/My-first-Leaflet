@@ -1,0 +1,25 @@
+---
+title: "My first Leaflet"
+author: "Zhouyang Luo"
+date: "2020/8/28"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Hangzhou: The City I live
+This is the city where I live. 
+
+```{r, echo=FALSE, message=FALSE}
+library(leaflet)
+df <- data.frame(lat=c(30.32789836, 30.2854470, 30.2854226), lng=c(120.0720704, 120.0141647, 120.14537745), place = c("This is where I live", "This is where I work", "This is where I worship"))
+df %>%
+  leaflet() %>% 
+  addTiles() %>%
+  addMarkers(popup= df$place)
+
+```
+
